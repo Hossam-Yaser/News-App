@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/models/article_model.dart';
 import 'package:news_app/models/category_news_widget.dart';
+import 'package:news_app/services/news_categories_serves.dart';
 
 import 'package:news_app/services/news_serves.dart';
 
@@ -11,7 +12,10 @@ class NewsListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<ArticleModel>>(
-      future: NewsServics(Dio()).generalNews(),
+      future: NewsServics(
+        NewsCategoriesServes().topHeadlines,
+        Dio(),
+      ).generalNews(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
