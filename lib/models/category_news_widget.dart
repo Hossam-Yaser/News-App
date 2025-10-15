@@ -7,62 +7,67 @@ class CategoryNewsWidget extends StatelessWidget {
     required this.titelText,
     required this.descriptionText,
     super.key,
+    this.onTap,
   });
   String imagePath;
   String titelText;
   String descriptionText;
+  void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Image.network(
-              imagePath,
-              height: 180,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                titelText,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                maxLines: 2,
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: Offset(0, 3), // changes position of shadow
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                descriptionText,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[600],
-                  overflow: TextOverflow.ellipsis,
-                ),
-                maxLines: 3,
+            ],
+          ),
+          child: Column(
+            children: [
+              Image.network(
+                imagePath,
+                height: 180,
+                width: double.infinity,
+                fit: BoxFit.fill,
               ),
-            ),
-            SizedBox(height: 10),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  titelText,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  maxLines: 2,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  descriptionText,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey[600],
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  maxLines: 3,
+                ),
+              ),
+              SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );

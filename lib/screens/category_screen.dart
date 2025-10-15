@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/models/article_model.dart';
 import 'package:news_app/models/category_news_widget.dart';
+import 'package:news_app/screens/news_show_screen.dart';
 import 'package:news_app/services/news_serves.dart';
 
 // ignore: must_be_immutable
@@ -105,6 +106,21 @@ class CategoryScreen extends StatelessWidget {
                           titelText: article.title ?? "No Title",
                           descriptionText:
                               article.description ?? "No Description",
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NewsShowScreen(
+                                  imageUrl:
+                                      article.urlToImage ??
+                                      "https://gizmodo.com/app/uploads/2025/10/Roger-Ver-1200x675.jpg",
+                                  newsTitle: article.title ?? "No Title",
+                                  newsDescription:
+                                      article.description ?? "No Description",
+                                ),
+                              ),
+                            );
+                          },
                         );
                       },
                     );
