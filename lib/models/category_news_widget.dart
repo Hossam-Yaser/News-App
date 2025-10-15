@@ -19,7 +19,6 @@ class CategoryNewsWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -38,23 +37,29 @@ class CategoryNewsWidget extends StatelessWidget {
               width: double.infinity,
               fit: BoxFit.fill,
             ),
-            Text(
-              titelText,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                overflow: TextOverflow.ellipsis,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                titelText,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                maxLines: 2,
               ),
-              maxLines: 2,
             ),
-            Text(
-              descriptionText,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
-                overflow: TextOverflow.ellipsis,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                descriptionText,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey[600],
+                  overflow: TextOverflow.ellipsis,
+                ),
+                maxLines: 3,
               ),
-              maxLines: 3,
             ),
             SizedBox(height: 10),
           ],
