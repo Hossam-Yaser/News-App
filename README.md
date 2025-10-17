@@ -9,9 +9,7 @@ Built with **Flutter** and **Dio**, this project demonstrates API integration, a
 
 > Here’s a quick look at the app in action:
 
-![App Demo]()
-*or*
-[🎬 Watch Demo Video]()
+<img src="Demo_record/NewsappRecord(2).gif" width="240" height="460" alt="News App Demo" />
 
 ---
 
